@@ -1,0 +1,12 @@
+{
+  "name": "front_cumple",
+  "version": "1.0.0",
+  "description": "Front con react",
+  "license": "ISC",
+  "author": "Daniel Alejandro Jaimes Jiménez",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
