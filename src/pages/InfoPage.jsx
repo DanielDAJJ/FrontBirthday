@@ -6,7 +6,7 @@ import { motion as Motion } from "framer-motion";
 //import "./InfoPage.css";
 
 const InfoPage = () =>{
-    const nickName = useNickname(5000);
+    const nickName = useNickname(3000);
     const {guest, confirmAttendance, declineAttendance} = useGuest();
     const navigate = useNavigate();
 

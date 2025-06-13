@@ -5,7 +5,7 @@ import { useGuest } from "../context/useGuest.jsx";
 import { motion as Motion } from "framer-motion";
 
 const FormPage = () => {
-    const nickName = useNickname(5000);
+    const nickName = useNickname(3000);
     const navigate = useNavigate();
     const {guest, updateGuest, resetGuest} = useGuest();
 

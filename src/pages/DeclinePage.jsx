@@ -9,7 +9,7 @@ const DeclinePage = () => {
     const [message, setMessage] = useState(guest.message || "");
     const [error, setError] = useState("");
     const [showPopup, setShowPopup] = useState(false);
-    const nickname = useNickname(5000);
+    const nickname = useNickname(3000);
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -24,7 +24,6 @@ const DeclinePage = () => {
                 body: JSON.stringify({...guest, isComing: false, message})
             })
             submitMessage(message);
-            setShowPopup(true);
         } catch (error) {
             console.error("Error al enviar el mensaje", error);
             setError("Error al enviar el mensaje. Intentalo de nuevo");
@@ -54,6 +53,9 @@ const DeclinePage = () => {
                     {error && <p className="error">{error}</p>}
                 </textarea>
                 <Motion.button
+                onClick={()=>{
+                    setShowPopup(true);
+                }}
                 type="submit"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale:0.95}}>

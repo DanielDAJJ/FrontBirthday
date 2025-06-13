@@ -1,10 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes.jsx";
+import { GuestProvider } from "./context/GuestProvider.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes/>
+      <GuestProvider>
+        <AppRoutes/>
+      </GuestProvider>
     </BrowserRouter>
   )
 }
