@@ -1,0 +1,127 @@
+@import './styles/variables.css';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+    padding: var(--spacing-m);
+}
+
+main{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+}
+
+h1, h2 {
+    font-family: var(--font-title);
+    color: var(--color-light);
+    text-align: center;
+    margin-bottom: var(--spacing-m);
+    line-height: var(--spacing-xl);
+    -webkit-text-stroke: 1.25px var(--color-dark);
+    text-shadow: 4px  4px 0 var(--color-accent);
+}
+
+h1{
+    font-size: var(--font-xl);
+}
+h2{
+    font-size: var(--font-l);
+}
+h3{
+    color: var(--color-black);
+    font-size: var(--font-m);
+    margin-bottom: var(--spacing-m);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+}
+
+input, textarea{
+    font-size: var(--font-s);
+    padding: var(--spacing-s);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    outline: none;
+}
+textarea{
+    resize: none;
+    min-height: 100px;
+}
+
+button{
+    padding: var(--spacing-s) var(--spacing-l);
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    font-size: var(--font-m);
+    cursor: pointer;
+    box-shadow:
+        var(--box-shadow),
+        3px 3px 0 var(--color-accent);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+button:hover{
+    background-color: var(--color-light);
+    box-shadow:
+        var(--box-shadow),
+        3px 3px 0 var(--color-border);
+}
+button:active{
+    background-color: var(--color-light);
+    box-shadow:
+        var(--box-shadow),
+        3px 3px 0 var(--color-border);
+}
+
+.center{
+    text-align: center;
+    font-size: var(--font-m);
+    margin: var(--spacing-m) 0;
+}
+
+.modal{
+    background-color: var(--color-light);
+    border: 2px solid var(--color-border);
+    padding: var(--spacing-l);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.background-decoration{
+    position: fixed;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+        img{
+            position: absolute;
+            max-width: 100%;
+            height: auto;
+            opacity: 0.3;
+            filter: blur(0.5px);
+        }
+}

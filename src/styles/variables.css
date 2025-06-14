@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+:root{
+    /*Colores*/
+    --color-bg: #fef7ef;
+    --color-primary: #E8B43A;
+    --color-accent: #EA653A;
+    --color-dark: #7D3D31;
+    --color-light: #fff2da;
+    --color-border: #bb2c00;
+    --color-title: #E2C792;
+    --color-black: #0D0B21;
+    /*Tipografías*/
+    --font-title: 'Shrikhand', cursive;
+    --font-body: 'Exo', sans-serif;
+    /*Espaciados*/
+    --spacing-s: 0.5rem;
+    --spacing-m: 1rem;
+    --spacing-l: 2rem;
+    --spacing-xl: 2.5rem;
+    /*Tamaños de fuente*/
+    --font-xs: 0.75rem;
+    --font-s: 1rem;
+    --font-m: 1.25rem;
+    --font-l: 2rem;
+    --font-xl: 2.5rem;
+    /*Bordes*/
+    --border-radius: 12px;
+    /*Sombra*/
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
