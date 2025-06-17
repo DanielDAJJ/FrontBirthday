@@ -1,0 +1,9 @@
+.confirmed-page{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}
+.center{
+    font-family: var(--font-title);
+}

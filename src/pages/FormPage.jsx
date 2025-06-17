@@ -33,37 +33,40 @@ const FormPage = () => {
     };
 
     return (
-        <Motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}>
-            <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Tu nombre</label>
-                <input
-                    name="name"
-                    type="text"
-                    placeholder="Nombre completo"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                />
-                <label>Nombre acompañante</label>
-                <input 
-                    type="text"
-                    name="companion"
-                    placeholder="Nombre de tu acompañante"
-                    value={formData.companion}
-                    onChange={handleChange}
-                />
-                <Motion.button 
-                    type="submit"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}>
-                    Continuar
-                </Motion.button>
-            </form>
-        </Motion.div>
+        <main>
+            <Motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}>
+                <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>Tu nombre</label>
+                    <input
+                        name="name"
+                        type="text"
+                        placeholder="Nombre completo"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label>Nombre acompañante</label>
+                    <input 
+                        type="text"
+                        name="companion"
+                        placeholder="Nombre de tu acompañante"
+                        value={formData.companion}
+                        onChange={handleChange}
+                    />
+                    <Motion.button 
+                        className="buttom-form"
+                        type="submit"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}>
+                        Continuar
+                    </Motion.button>
+                </form>
+            </Motion.div>
+        </main>
     )
 }
 

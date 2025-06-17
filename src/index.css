@@ -20,8 +20,13 @@ body{
 
 main{
     max-width: 480px;
+    min-height: 100dvh;
     margin: 0 auto;
     padding: var(--spacing-m);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1, h2 {
@@ -121,7 +126,8 @@ button:active{
             position: absolute;
             max-width: 100%;
             height: auto;
-            opacity: 0.4;
-            filter: blur(0.75px);
         }
+}
+.buttom-form{
+    margin-top: var(--spacing-xl);
 }
