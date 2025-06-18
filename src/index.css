@@ -148,7 +148,7 @@ strong{
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%, 0);
+    transform: translateX(-50%);
     width: 120px;
     max-width: 25vw;
     z-index: 10;
