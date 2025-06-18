@@ -131,3 +131,7 @@ button:active{
 .buttom-form{
     margin-top: var(--spacing-xl);
 }
+strong{
+    font-family: var(--font-title);
+    font-weight: 100;
+}
