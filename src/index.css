@@ -19,11 +19,9 @@ body{
 }
 
 main{
-    position: absolute;
     max-width: 480px;
     min-height: 100dvh;
     margin: 0 auto;
-    
     padding: 0 var(--spacing-m);
     display: flex;
     flex-direction: column;
@@ -146,14 +144,21 @@ strong{
     font-weight: bold;
     margin-top: 0.5rem;
 }
-.bola-disco{
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+.form-container{
+    position: relative;
     width: 100%;
-    max-width: 100px;
-    z-index: 10;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-s);
+}
+.bola-disco{
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    z-index: 2;
+    margin: 0;
     pointer-events: none;
 }
 .sparkle{

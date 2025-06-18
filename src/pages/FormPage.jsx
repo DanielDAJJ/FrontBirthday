@@ -59,42 +59,42 @@ const FormPage = () => {
 
     return (
         <main>
-            <Motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 , ease: "easeOut" }}>
-                <div className="bola-disco">
-                    <Motion.img src="/assets/BolaDisco.gif" alt="Bola girando"/>
-                </div>
-                <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
-                <form onSubmit={handleSubmit}>
-                    <label>Tu nombre<strong>*</strong></label>
-                    <input
-                        name="name"
-                        type="text"
-                        placeholder="Nombre completo"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label>Nombre acompañante</label>
-                    <input 
-                        type="text"
-                        name="companion"
-                        placeholder="Nombre de tu acompañante"
-                        value={formData.companion}
-                        onChange={handleChange}
-                    />
-                    {error && <p className="error">{error}</p>}
-                    <Motion.button 
-                        className="buttom-form"
-                        type="submit"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}>
-                        Continuar
-                    </Motion.button>
-                </form>
-            </Motion.div>
+            <div className="form-container">
+                <img src="/assets/BolaDisco.gif" alt="Bola girando" className="bola-disco"/>
+                <Motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 , ease: "easeOut" }}>
+                    <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
+                    <form onSubmit={handleSubmit}>
+                        <label>Tu nombre<strong>*</strong></label>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Nombre completo"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label>Nombre acompañante</label>
+                        <input 
+                            type="text"
+                            name="companion"
+                            placeholder="Nombre de tu acompañante"
+                            value={formData.companion}
+                            onChange={handleChange}
+                        />
+                        {error && <p className="error">{error}</p>}
+                        <Motion.button 
+                            className="buttom-form"
+                            type="submit"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}>
+                            Continuar
+                        </Motion.button>
+                    </form>
+                </Motion.div>
+            </div>
         </main>
     )
 }
