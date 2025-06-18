@@ -59,13 +59,13 @@ const FormPage = () => {
 
     return (
         <main>
-            <div className="bola-disco">
-                <img src="/assets/BolaDisco.gif" alt="Bola girando"/>
-            </div>
             <Motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}>
+                transition={{ duration: 0.8 , ease: "easeOut" }}>
+                <div className="bola-disco">
+                    <Motion.img src="/assets/BolaDisco.gif" alt="Bola girando"/>
+                </div>
                 <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
                 <form onSubmit={handleSubmit}>
                     <label>Tu nombre<strong>*</strong></label>
