@@ -3,12 +3,13 @@ import { useGuest } from '../context/useGuest.jsx';
 import { motion as Motion } from 'framer-motion';
 import "./ConfirmedPage.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const ConfirmedPage = () => {
     const {guest, resetGuest} = useGuest();
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         (async () =>{try {
-            await fetch("http://localhost:8080/api/guests", {
+            await fetch(API_URL, {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify({...guest, isComing:true})

@@ -4,7 +4,7 @@ import {motion as Motion} from "framer-motion";
 import { useNickname } from "../hooks/useNickname.jsx";
 import "./DeclinePage.css"
 
-
+const API_URL = import.meta.env.VITE_API_URL;
 const DeclinePage = () => {
     const {guest, resetGuest, submitMessage} = useGuest();
     const [message, setMessage] = useState(guest.message || "");
@@ -19,7 +19,7 @@ const DeclinePage = () => {
             return;
         }
         try {
-            await fetch ("http://localhost:8080/api/guests", {
+            await fetch (API_URL, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({...guest, isComing: false, message})
