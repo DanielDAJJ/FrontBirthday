@@ -46,8 +46,7 @@ export function GuestProvider({ children }) {
             ...prev,
             message
         }));
-        navigate('/thank-you');
-    }, [navigate]);
+    }, []);
 
     const resetGuest = useCallback(()=>{
         setGuest({

@@ -19,11 +19,16 @@ const DeclinePage = () => {
             return;
         }
         try {
-            await fetch (API_URL, {
+            const response = await fetch (API_URL, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({...guest, isComing: false, message})
-            })
+                body: JSON.stringify({...guest, isComing: false, message: message.trim()})
+            });
+            if(!response.ok){
+                const data = await response.json();
+                setError(data.error || "Error al enviar el mensaje");
+                return;
+            }
             submitMessage(message);
             setShowPopup(true);
         } catch (error) {

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useGuest } from "../context/useGuest.jsx";
 import { motion as Motion } from "framer-motion";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const FormPage = () => {
     const nickName = useNickname(3000);
     const navigate = useNavigate();
@@ -13,6 +14,8 @@ const FormPage = () => {
         name: guest.name || '',
         companion: guest.companion || ''
     });
+
+    const [error, setError] = useState('');
 
     useEffect(()=>{
         if(guest.isComing !== null) resetGuest();
@@ -24,23 +27,48 @@ const FormPage = () => {
             ...prev,
             [name]: value
         }));
+        setError('');
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        updateGuest(formData);
-        navigate("/info");
+        if(!formData.name.trim()){
+            setError('El nombre es obligatorio');
+            return;
+        }
+        
+        try {
+            const res =  await fetch(API_URL);
+            const data = await res.json();
+
+            const nameExists = data.guests.some(
+                (g) => g.name.toLowerCase() === formData.name.trim().toLowerCase()
+            );
+
+            if(nameExists){
+                setError('El nombre ya existe');
+                return;
+            }
+            updateGuest(formData);
+            navigate('/info');
+        } catch (error) {
+            console.error('Error al validar el nombre', error);
+            setError('Error de conexión con el servidor')
+        }
     };
 
     return (
         <main>
+            <div className="bola-disco">
+                <img src="/assets/BolaDisco.gif" alt="Bola girando"/>
+            </div>
             <Motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}>
                 <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
                 <form onSubmit={handleSubmit}>
-                    <label>Tu nombre</label>
+                    <label>Tu nombre<strong>*</strong></label>
                     <input
                         name="name"
                         type="text"
@@ -57,6 +85,7 @@ const FormPage = () => {
                         value={formData.companion}
                         onChange={handleChange}
                     />
+                    {error && <p className="error">{error}</p>}
                     <Motion.button 
                         className="buttom-form"
                         type="submit"

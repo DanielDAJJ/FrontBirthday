@@ -6,6 +6,7 @@ import { useNickname } from "../hooks/useNickname.jsx";
 import { motion as Motion } from "framer-motion";
 //import "./InfoPage.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const InfoPage = () =>{
     const nickName = useNickname(3000);
     const {guest, confirmAttendance, declineAttendance} = useGuest();
@@ -14,6 +15,33 @@ const InfoPage = () =>{
     if (!guest.name) {
         navigate("/");
         return null;
+    }
+        const handleConfirm = async () =>{
+            try {
+        await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...guest, isComing: true })
+        });
+        confirmAttendance();
+        } catch (err) {
+        console.error("Error al confirmar asistencia", err);
+        alert("Hubo un problema al confirmar tu asistencia. Intenta de nuevo.");
+        }
+    };
+
+    const handleDecline = async () => {
+        try {
+        await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...guest, isComing: false })
+        });
+        declineAttendance();
+        } catch (err) {
+        console.error("Error al procesar declinación", err);
+        alert("Hubo un problema. Intenta de nuevo.");
+        }
     }
     return (
         <main>
@@ -29,8 +57,8 @@ const InfoPage = () =>{
                     <strong>{guest.name}</strong>
                     {guest.companion && (
                         <>
-                            {'y'}
                             <strong>
+                                {' y '}
                                 {guest.companion}
                             </strong>
                         </>
@@ -38,7 +66,7 @@ const InfoPage = () =>{
                 </p>
                 <div className="event-info">
                     <p>
-                        Vamos a celebrar sus <strong>75</strong> con un almuerzo bien sabroso que se alarga hasta la rumba. ¡Puro estilo setentas!
+                        Vamos a celebrar sus 75 con un almuerzo bien sabroso que se alarga hasta la rumba. ¡Puro estilo setentas!
                     </p>
                     <p>
                         <strong>Fecha</strong><br />
@@ -55,7 +83,7 @@ const InfoPage = () =>{
                     </p>
                     <p>
                         <strong>Código de vestuario</strong><br />
-                        Look años 70's - ¡saca tu mejor outfit vintage!
+                        Look años 70's - <span>¡saca tu mejor outfit vintage!</span>
                     </p>
                     <p className="dedication-prompt">
                         Escríbele unas palabras para que puedas dedicárselas personalmente en su día
@@ -64,14 +92,14 @@ const InfoPage = () =>{
                 <div className="buttons">
                     <Motion.button
                     className="btn-yes"
-                    onClick={confirmAttendance}
+                    onClick={handleConfirm}
                     whileHover={{scale:1.05}}
                     whileTap={{scale:0.95}}>
                         ¡Allá estaré con todo el flow!
                     </Motion.button>
                     <Motion.button
                     className="btn-no"
-                    onClick={declineAttendance}
+                    onClick={handleDecline}
                     whileHover={{scale:1.05}}
                     whileTap={{scale:0.95}}>
                         No puedo acompañarlos
