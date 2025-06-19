@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const nickNames = ["Enrique", "Henry", "Delgaito", "Enriquito", "Henrito", "Kike"];
+const nickNames = ["Enrique", "Henry", "Delgaito", "Enriquito", "Henrito", "Kike", "Pichuco"];
 /** 
 *@param {number} intervalMs - milisegundos entre cada cambio (por defecto 5000)
 *@returns {string} apodo actual
