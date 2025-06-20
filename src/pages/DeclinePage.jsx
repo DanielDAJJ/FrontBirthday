@@ -89,7 +89,7 @@ const DeclinePage = () => {
                             }}
                             whileHover={{scale:1.05}}
                             whileTap={{scale:0.95}}>
-                                Cerrar página
+                                Finalizar
                             </Motion.button>
                         </Motion.div>
                     </Motion.div>
