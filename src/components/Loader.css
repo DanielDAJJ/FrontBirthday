@@ -1,0 +1,17 @@
+.loader-container{
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    text-align: center;
+    padding: 2rem;
+}
+.loader-container img {
+    width: 140px;
+    height: auto;
+    margin: 1rem;
+}
