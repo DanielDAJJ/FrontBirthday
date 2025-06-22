@@ -3,6 +3,7 @@ import { useNickname } from "../hooks/useNickname.jsx";
 import { useNavigate } from "react-router-dom";
 import { useGuest } from "../context/useGuest.jsx";
 import { motion as Motion } from "framer-motion";
+import Loader from "../components/Loader.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const FormPage = () => {
@@ -16,10 +17,16 @@ const FormPage = () => {
     });
 
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         if(guest.isComing !== null) resetGuest();
     }, [guest.isComing, resetGuest]);
+
+    useEffect(()=>{
+        fetch(API_URL)
+            .catch(error => console.warn("No se pudo despertar el backend", error))
+    }, []);
 
     const handleChange = (e) => {
         const {name, value} =  e.target;
@@ -36,7 +43,9 @@ const FormPage = () => {
             setError('El nombre es obligatorio');
             return;
         }
-        
+
+        setLoading(true);
+
         try {
             const res =  await fetch(API_URL);
             const data = await res.json();
@@ -47,15 +56,19 @@ const FormPage = () => {
 
             if(nameExists){
                 setError('El nombre ya existe');
+                setLoading(false);
                 return;
             }
             updateGuest(formData);
             navigate('/info');
         } catch (error) {
             console.error('Error al validar el nombre', error);
-            setError('Error de conexión con el servidor')
+            setError('Error de conexión con el servidor');
+            setLoading(false);
         }
     };
+
+    if(loading) return <Loader />;
 
     return (
         <main>
