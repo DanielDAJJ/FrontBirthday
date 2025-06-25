@@ -2,13 +2,11 @@ import React from "react";
 import "./InfoPage.css"
 import { useGuest } from "../context/useGuest.jsx";
 import { useNavigate } from "react-router-dom";
-import { useNickname } from "../hooks/useNickname.jsx";
 import { motion as Motion } from "framer-motion";
 //import "./InfoPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const InfoPage = () =>{
-    const nickName = useNickname(3000);
     const {guest, confirmAttendance, declineAttendance} = useGuest();
     const navigate = useNavigate();
 
@@ -51,7 +49,7 @@ const InfoPage = () =>{
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}>
                 <h2>
-                    ¡{nickName} está de cumple y la fiesta es a lo grande!
+                    ¡Henry está de cumple y la fiesta es a lo grande!
                 </h2>
                 <p className="guest-names">
                     <strong>{guest.name}</strong>
@@ -86,8 +84,9 @@ const InfoPage = () =>{
                         Look años 70's - <span>¡saca tu mejor outfit vintage!</span>
                     </p>
                     <p className="dedication-prompt">
-                        Escríbele unas palabras para que puedas dedicárselas personalmente en su día
+                        Escríbele unas palabras para que puedas dedicárselas personalmente en su día.
                     </p>
+                    <em><span>Esperamos tu respuesta antes del 13 de julio</span></em>
                 </div>
                 <div className="buttons">
                     <Motion.button

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNickname } from "../hooks/useNickname.jsx";
 import { useNavigate } from "react-router-dom";
 import { useGuest } from "../context/useGuest.jsx";
 import { motion as Motion } from "framer-motion";
@@ -7,7 +6,6 @@ import Loader from "../components/Loader.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const FormPage = () => {
-    const nickName = useNickname(3000);
     const navigate = useNavigate();
     const {guest, updateGuest, resetGuest} = useGuest();
 
@@ -78,7 +76,7 @@ const FormPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 , ease: "easeOut" }}>
-                    <h1>¡{nickName} está de cumple y la fiesta es a lo grande!</h1>
+                    <h1>¡Henry está de cumple y la fiesta es a lo grande!</h1>
                     <form onSubmit={handleSubmit}>
                         <label>Tu nombre<strong>*</strong></label>
                         <input
