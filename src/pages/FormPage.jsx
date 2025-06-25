@@ -87,7 +87,7 @@ const FormPage = () => {
                             onChange={handleChange}
                             required
                         />
-                        <label>Nombre acompañante</label>
+                        <label>¿Vienes con alguien? (Un solo acompañante)</label>
                         <input 
                             type="text"
                             name="companion"
