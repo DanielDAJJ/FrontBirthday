@@ -6,7 +6,7 @@ import "./DeclinePage.css"
 
 const API_URL = import.meta.env.VITE_API_URL;
 const DeclinePage = () => {
-    const {guest, resetGuest, submitMessage} = useGuest();
+    const {guest, submitMessage} = useGuest();
     const [message, setMessage] = useState(guest.message || "");
     const [error, setError] = useState("");
     const [showPopup, setShowPopup] = useState(false);
@@ -84,8 +84,7 @@ const DeclinePage = () => {
                             </p>
                             <Motion.button
                             onClick={()=>{
-                                resetGuest();
-                                window.close();
+                                setShowPopup(false);
                             }}
                             whileHover={{scale:1.05}}
                             whileTap={{scale:0.95}}>

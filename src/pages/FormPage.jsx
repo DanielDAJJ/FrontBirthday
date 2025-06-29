@@ -76,7 +76,7 @@ const FormPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 , ease: "easeOut" }}>
-                    <h1>¡Henry está de cumple y la fiesta es a lo grande!</h1>
+                    <h1>¡Henry está de cumple y la fiesta es <br /> a lo grande!</h1>
                     <form onSubmit={handleSubmit}>
                         <label>Tu nombre<strong>*</strong></label>
                         <input

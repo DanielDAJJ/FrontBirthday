@@ -49,7 +49,7 @@ const InfoPage = () =>{
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}>
                 <h2>
-                    ¡Henry está de cumple y la fiesta es a lo grande!
+                    ¡Henry está de cumple <br />y la fiesta es a lo grande!
                 </h2>
                 <p className="guest-names">
                     <strong>{guest.name}</strong>
@@ -72,7 +72,7 @@ const InfoPage = () =>{
                     </p>
                     <p>
                         <strong>Hora</strong><br />
-                        desde la 1:00 p.m.
+                        1:00 p.m.
                     </p>
                     <p>
                         <strong>Lugar</strong><br />
@@ -84,7 +84,7 @@ const InfoPage = () =>{
                         Look años 70's - <span>¡saca tu mejor outfit vintage!</span>
                     </p>
                     <p className="dedication-prompt">
-                        Escríbele unas palabras para que puedas dedicárselas personalmente en su día.
+                        <strong>¡Recuerda que es sorpresa!</strong>
                     </p>
                     <em><span>Esperamos tu respuesta antes del 13 de julio</span></em>
                 </div>

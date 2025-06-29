@@ -5,7 +5,7 @@ import "./ConfirmedPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const ConfirmedPage = () => {
-    const {guest, resetGuest} = useGuest();
+    const {guest} = useGuest();
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         (async () =>{try {
@@ -42,16 +42,7 @@ const ConfirmedPage = () => {
                 <p>
                     ¡Qué nota! La vamos a pasar buenísimo.
                 </p><br />
-                <p className='center'>¡Nos vemos pa' la comilona y la bailada!</p>
-                <Motion.button
-                onClick={()=>{
-                    resetGuest();
-                    window.close();
-                }}
-                whileHover={{scale:1.05}}
-                whileTap={{scale:0.95}}>
-                    Finalizar
-                </Motion.button>
+                <p className='center'>¡Nos vemos allá!</p>
             </Motion.div>
         </main>
     )
