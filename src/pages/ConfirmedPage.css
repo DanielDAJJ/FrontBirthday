@@ -2,7 +2,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-m);
+    gap: var(--spacing-xs);
 }
 .center{
     font-family: var(--font-title);

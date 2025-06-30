@@ -39,10 +39,10 @@ const ConfirmedPage = () => {
                 <h2>
                     ¡Gracias por confirmar tu asistencia!
                 </h2>
-                <p>
-                    ¡Qué nota! La vamos a pasar buenísimo.
-                </p><br />
-                <p className='center'>¡Nos vemos allá!</p>
+                <p className='center'>
+                ¡Qué nota! La vamos a pasar buenísimo.
+                <br />
+                ¡Nos vemos allá!</p>
             </Motion.div>
         </main>
     )
