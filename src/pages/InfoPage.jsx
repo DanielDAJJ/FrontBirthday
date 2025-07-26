@@ -86,7 +86,7 @@ const InfoPage = () =>{
                     <p className="dedication-prompt">
                         <strong>¡Recuerda que es sorpresa!</strong>
                     </p>
-                    <em><span>Esperamos tu respuesta antes del 13 de julio</span></em>
+                    <em><span>Esperamos tu respuesta en los próximos días</span></em>
                 </div>
                 <div className="buttons">
                     <Motion.button
